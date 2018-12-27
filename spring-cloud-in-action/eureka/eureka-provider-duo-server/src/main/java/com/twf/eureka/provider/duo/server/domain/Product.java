@@ -1,4 +1,4 @@
-package com.twf.eureka.consumer.domain;
+package com.twf.eureka.provider.duo.server.domain;
 
 public class Product {
 
@@ -8,6 +8,7 @@ public class Product {
 	public Product() {
 		super();
 	}
+	
 	public Product(int id, String name) {
 		super();
 		this.id = id;
