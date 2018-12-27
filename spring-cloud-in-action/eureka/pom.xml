@@ -15,6 +15,7 @@
     <module>eureka-provider</module>
     <module>eureka-consumer</module>
     <module>eureka-provider-duo-server</module>
+    <module>eureka-consumer-Lb</module>
   </modules>
   
   <dependencies>
