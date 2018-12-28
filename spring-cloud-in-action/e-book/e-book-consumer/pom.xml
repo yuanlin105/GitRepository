@@ -17,5 +17,6 @@
   </dependencies>
   <modules>
     <module>e-book-consumer-feign-param</module>
+    <module>e-book-consumer-gzip</module>
   </modules>
 </project>
