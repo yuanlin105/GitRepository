@@ -9,5 +9,6 @@
   <packaging>pom</packaging>
   <modules>
   	<module>e-book-product</module>
+  	<module>e-book-consumer</module>
   </modules>
 </project>
