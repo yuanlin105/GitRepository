@@ -2,6 +2,7 @@ package com.twf.e.book.product.api.facade;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,12 +19,12 @@ public interface ProductFacade {
 	@RequestMapping(value="get",method=RequestMethod.GET)
 	public Product getProduct(@RequestParam("id")Integer id);
 	
-	@RequestMapping(value="get2",method=RequestMethod.GET)
-	public Product getProduct2(Product obj);
+	@RequestMapping(value="get2",method=RequestMethod.GET,consumes=MediaType.APPLICATION_JSON_VALUE)
+	public Product getProduct2(@RequestBody Product obj);
 	
 	@RequestMapping(value="get3",method=RequestMethod.GET)
 	public Product getProduct3(@RequestParam("id")Integer id,@RequestParam("name")String name);
 	
-	@RequestMapping(value="add",method=RequestMethod.POST)
+	@RequestMapping(value="add",method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
 	public Product addProduct(@RequestBody Product obj);
 }
