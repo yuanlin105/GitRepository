@@ -19,5 +19,6 @@
     <module>e-book-consumer-feign-param</module>
     <module>e-book-consumer-gzip</module>
     <module>e-book-consumer-feign-httpclient</module>
+    <module>e-book-consumer-feign-log</module>
   </modules>
 </project>
