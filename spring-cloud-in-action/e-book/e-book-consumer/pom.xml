@@ -20,5 +20,6 @@
     <module>e-book-consumer-gzip</module>
     <module>e-book-consumer-feign-httpclient</module>
     <module>e-book-consumer-feign-log</module>
+    <module>e-book-consumer-feign-ribbon</module>
   </modules>
 </project>
