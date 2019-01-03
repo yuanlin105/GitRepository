@@ -16,12 +16,6 @@ public class ProductFacadeImpl implements ProductFacade{
 
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	public List<Product>listProduct() {
-		System.out.println("##########################");
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		
 		List<Product> list = new ArrayList<Product>();
 		list.add(new Product(1, "登山包"));
