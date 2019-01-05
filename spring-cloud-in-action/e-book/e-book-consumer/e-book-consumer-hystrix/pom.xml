@@ -10,5 +10,6 @@
   <packaging>pom</packaging>
   <modules>
     <module>e-book-consumer-hystrix-ribbon-fallback</module>
+    <module>e-book-consumer-hystrix-ribbon-cache</module>
   </modules>
 </project>
