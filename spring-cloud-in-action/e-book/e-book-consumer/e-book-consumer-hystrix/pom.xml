@@ -13,5 +13,6 @@
     <module>e-book-consumer-hystrix-ribbon-cache</module>
     <module>e-book-consumer-hystrix-ribbon-batch</module>
     <module>e-book-consumer-hystrix-ribbon-breaker</module>
+    <module>e-book-consumer-hystrix-ribbon-threadpool</module>
   </modules>
 </project>
