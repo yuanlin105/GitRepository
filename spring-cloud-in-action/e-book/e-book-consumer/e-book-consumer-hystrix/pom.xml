@@ -15,5 +15,6 @@
     <module>e-book-consumer-hystrix-ribbon-breaker</module>
     <module>e-book-consumer-hystrix-ribbon-threadpool</module>
     <module>e-book-consumer-hystrix-ribbon-semaphore</module>
+    <module>e-book-consumer-hystrix-feign-fallback</module>
   </modules>
 </project>
