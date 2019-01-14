@@ -7,8 +7,8 @@
     <artifactId>e-book-consumer-hystrix</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>e-book-consumer-hystrix-feign-fallback</artifactId>
-  <name>e-book-consumer-hystrix-feign-fallback</name>
+  <artifactId>e-book-consumer-hystrix-turbine</artifactId>
+  <name>e-book-consumer-hystrix-turbine</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,19 +20,9 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    
-        <dependency>
+    <dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-web</artifactId>
-	</dependency>
-	<dependency>
-		<groupId>${project.parent.groupId}</groupId>
-		<artifactId>e-book-product-api</artifactId>
-		<version>${project.parent.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.cloud</groupId>
-		<artifactId>spring-cloud-starter-feign</artifactId>
 	</dependency>
 	
 	<dependency>
@@ -49,6 +39,17 @@
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
 	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-turbine</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-netflix-turbine</artifactId>
+	</dependency>
+	
   </dependencies>
   
   <build>
