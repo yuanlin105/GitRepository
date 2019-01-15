@@ -19,5 +19,7 @@
     <module>e-book-consumer-hystrix-feign-factory</module>
     <module>e-book-consumer-hystrix-dashboard</module>
     <module>e-book-consumer-hystrix-turbine</module>
+    <module>e-book-consumer-hystrix-ribbon-threadpool-mq</module>
+    <module>e-book-consumer-hystrix-turbine-mq</module>
   </modules>
 </project>
