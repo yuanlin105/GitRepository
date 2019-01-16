@@ -10,29 +10,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.twf.e.book.product.api.domain.Product;
 import com.twf.e.book.product.api.facade.ProductFacade;
-import com.twf.e.book.product.core.persistence.ProductMapper;
+import com.twf.e.book.product.core.service.ProductService;
 
 @RestController
 public class ProductFacadeImpl implements ProductFacade{
 
 	@Autowired
-	private ProductMapper productMapper;
+	private ProductService productService;
 	
 	@RequestMapping(value="findAllProduct",method=RequestMethod.GET)
 	public List<Product>findAllProduct() {
-		return this.productMapper.findAllProduct();
+		return this.productService.listProduct();
 	}
 	
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	public List<Product>listProduct() {
-		List<Product> list = this.productMapper.findAllProduct();
+		List<Product> list = this.productService.listProduct();
 		return list;
-		
 	}
 
 	@Override
 	public Product getProduct(Integer id) {
-		return productMapper.selectByPrimaryKey(id);
+		return productService.selectByPrimaryKey(id);
 	}
 
 	@Override
