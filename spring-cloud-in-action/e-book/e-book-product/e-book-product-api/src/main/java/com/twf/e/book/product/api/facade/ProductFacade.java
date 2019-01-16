@@ -13,6 +13,9 @@ import com.twf.e.book.product.api.domain.Product;
 @RequestMapping("/product")
 public interface ProductFacade {
 
+	@RequestMapping(value="findAllProduct",method=RequestMethod.GET)
+	public List<Product>findAllProduct();
+	
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	public List<Product> listProduct();
 	

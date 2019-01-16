@@ -1,8 +1,8 @@
 package com.twf.e.book.product.core.facade;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,25 +10,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.twf.e.book.product.api.domain.Product;
 import com.twf.e.book.product.api.facade.ProductFacade;
+import com.twf.e.book.product.core.persistence.ProductMapper;
 
 @RestController
 public class ProductFacadeImpl implements ProductFacade{
 
+	@Autowired
+	private ProductMapper productMapper;
+	
+	@RequestMapping(value="findAllProduct",method=RequestMethod.GET)
+	public List<Product>findAllProduct() {
+		return this.productMapper.findAllProduct();
+	}
+	
 	@RequestMapping(value="list",method=RequestMethod.GET)
 	public List<Product>listProduct() {
-		
-		List<Product> list = new ArrayList<Product>();
-		list.add(new Product(1, "登山包"));
-		list.add(new Product(2, "登山杖"));
-		list.add(new Product(3, "冲锋衣"));
-		list.add(new Product(4, "帐篷"));
-		list.add(new Product(5, "睡袋"));
+		List<Product> list = this.productMapper.findAllProduct();
 		return list;
+		
 	}
 
 	@Override
 	public Product getProduct(Integer id) {
-		return new Product(id,"登山包");
+		return productMapper.selectByPrimaryKey(id);
 	}
 
 	@Override
