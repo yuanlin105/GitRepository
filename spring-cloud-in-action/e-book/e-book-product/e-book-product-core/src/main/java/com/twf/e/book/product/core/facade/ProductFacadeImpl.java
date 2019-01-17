@@ -1,5 +1,6 @@
 package com.twf.e.book.product.core.facade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,9 @@ public class ProductFacadeImpl implements ProductFacade{
 	
 	@RequestMapping(value="findAllProduct",method=RequestMethod.GET)
 	public List<Product>findAllProduct() {
-		return this.productService.listProduct();
+		List<Product> list = new ArrayList<Product>();
+		list = this.productService.listProduct();
+		return list;
 	}
 	
 	@RequestMapping(value="list",method=RequestMethod.GET)

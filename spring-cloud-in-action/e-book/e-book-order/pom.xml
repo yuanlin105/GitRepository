@@ -3,17 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.twf.springcloud</groupId>
-    <artifactId>spring-cloud-in-action</artifactId>
+    <artifactId>e-book</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>e-book</artifactId>
+  <artifactId>e-book-order</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>e-book-product</module>
-  	<module>e-book-consumer</module>
-  	<module>e-book-user</module>
-  	<module>e-book-order</module>
-  	<module>e-book-trader</module>
-    <module>e-book-consumer-order</module>
+    <module>e-book-order-api</module>
+    <module>e-book-order-core</module>
   </modules>
 </project>

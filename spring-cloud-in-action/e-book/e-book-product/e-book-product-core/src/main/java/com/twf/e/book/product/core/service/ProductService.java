@@ -15,7 +15,8 @@ public class ProductService {
 	private ProductMapper productMapper;
 	
 	public List<Product>listProduct() {
-		return productMapper.findAllProduct();
+		List<Product> list = productMapper.findAllProduct();
+		return list;
 	}
 
 	public Product selectByPrimaryKey(Integer id) {

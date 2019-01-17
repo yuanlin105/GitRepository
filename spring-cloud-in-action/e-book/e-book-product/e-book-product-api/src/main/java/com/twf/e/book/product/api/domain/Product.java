@@ -107,12 +107,18 @@ public class Product implements Serializable{
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
     }
+    
+	public Product() {
+		super();
+	}
 
 	public Product(Integer id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
+	
+	
 
 	public Product(Integer id, String name, Integer status, Integer price, String detail, Integer deleted,
 			String createTime, String updateTime) {
