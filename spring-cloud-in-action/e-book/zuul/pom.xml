@@ -19,5 +19,6 @@
   <modules>
     <module>zuul-gateway</module>
     <module>zuul-gateway-route</module>
+    <module>zuul-gateway-filter</module>
   </modules>
 </project>
