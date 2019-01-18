@@ -22,5 +22,7 @@
     <module>zuul-gateway-filter</module>
     <module>zuul-gateway-filter-exception</module>
     <module>zuul-gateway-fallback</module>
+    <module>zuul-gateway-ratelimit</module>
+    <module>zuul-gateway-timeout</module>
   </modules>
 </project>
