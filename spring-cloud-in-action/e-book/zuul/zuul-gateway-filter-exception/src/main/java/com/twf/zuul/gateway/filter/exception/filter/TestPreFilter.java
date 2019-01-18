@@ -35,8 +35,8 @@ public class TestPreFilter extends ZuulFilter{
 		RequestContext rc=RequestContext.getCurrentContext();
 		HttpServletRequest request=rc.getRequest();
 		logger.info("---------------------------pre2-------------------------------");
-		throw new RuntimeException("error");
-//		return null;
+//		throw new RuntimeException("error");
+		return null;
 	}
 
 	@Override
