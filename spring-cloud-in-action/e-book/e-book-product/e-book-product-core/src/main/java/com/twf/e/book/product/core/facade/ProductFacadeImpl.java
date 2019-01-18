@@ -21,6 +21,11 @@ public class ProductFacadeImpl implements ProductFacade{
 	
 	@RequestMapping(value="findAllProduct",method=RequestMethod.GET)
 	public List<Product>findAllProduct() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		List<Product> list = new ArrayList<Product>();
 		list = this.productService.listProduct();
 		return list;
