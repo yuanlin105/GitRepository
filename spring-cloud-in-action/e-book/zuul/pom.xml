@@ -21,5 +21,6 @@
     <module>zuul-gateway-route</module>
     <module>zuul-gateway-filter</module>
     <module>zuul-gateway-filter-exception</module>
+    <module>zuul-gateway-fallback</module>
   </modules>
 </project>
