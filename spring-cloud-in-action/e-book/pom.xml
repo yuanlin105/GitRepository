@@ -17,5 +17,6 @@
     <module>e-book-consumer-order</module>
     <module>zuul</module>
     <module>config</module>
+    <module>commons</module>
   </modules>
 </project>
