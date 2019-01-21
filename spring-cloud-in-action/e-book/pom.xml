@@ -16,5 +16,6 @@
   	<module>e-book-trader</module>
     <module>e-book-consumer-order</module>
     <module>zuul</module>
+    <module>config</module>
   </modules>
 </project>
