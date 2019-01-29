@@ -22,9 +22,8 @@ import org.apache.http.util.EntityUtils;
 public class HttpClientUtil {  
 	
 	public static void main(String[] args) {
-		String url="http://127.0.0.1:8123/refresh";
-		
-		String html=HttpClientUtil.doPost(url);
+		String url="http://127.0.0.1:8124/encrypt";
+		String html = HttpClientUtil.doPostJson(url, "root");
 		System.out.println(html);
 	}
 	
