@@ -17,6 +17,11 @@ public class CoMenuVo implements Serializable{
     private String menuContent;
 
     /**
+     * 菜单单品图片所有url，用英文逗号分隔
+     */
+    private String itmeUrls;
+    
+    /**
      * 祝福语
      */
     private String menuGreetings;
@@ -25,6 +30,7 @@ public class CoMenuVo implements Serializable{
      * 饮食文化
      */
     private String menuFoodCulture;
+    
 
 	public String getMenuMorningNoon() {
 		return menuMorningNoon;
@@ -56,5 +62,13 @@ public class CoMenuVo implements Serializable{
 
 	public void setMenuFoodCulture(String menuFoodCulture) {
 		this.menuFoodCulture = menuFoodCulture;
+	}
+
+	public String getItmeUrls() {
+		return itmeUrls;
+	}
+
+	public void setItmeUrls(String itmeUrls) {
+		this.itmeUrls = itmeUrls;
 	}
 }

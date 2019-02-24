@@ -49,7 +49,7 @@ public class CoUserMenuServiceImpl implements CoUserMenuService{
 			if (StringUtil.nullAndEmpty(coUserMenu.getMenuMorningNoon())) {
 				return AvailableResult.errorMsg("请求参数的时间段为空");
 			}
-			if (!"moning".equals(coUserMenu.getMenuMorningNoon()) && !"noon".equals(coUserMenu.getMenuMorningNoon())) {
+			if (!"am".equals(coUserMenu.getMenuMorningNoon()) && !"pm".equals(coUserMenu.getMenuMorningNoon())) {
 				return AvailableResult.errorMsg("参数“时间段”的值不符合规范，请检查");
 			}
 			
@@ -94,7 +94,7 @@ public class CoUserMenuServiceImpl implements CoUserMenuService{
 			if (StringUtil.nullAndEmpty(coUserMenu.getMenuMorningNoon())) {
 				return AvailableResult.errorMsg("请求参数的时间段为空");
 			}
-			if (!"moning".equals(coUserMenu.getMenuMorningNoon()) && !"noon".equals(coUserMenu.getMenuMorningNoon())) {
+			if (!"am".equals(coUserMenu.getMenuMorningNoon()) && !"pm".equals(coUserMenu.getMenuMorningNoon())) {
 				return AvailableResult.errorMsg("参数“时间段”的值不符合规范，请检查");
 			}
 			coUserMenu = coUserMenuMapper.selectOne(coUserMenu);

@@ -32,5 +32,4 @@ public class CoMenuController {
 	public AvailableResult queryCoMenuByKey(@RequestBody CoMenu coMenu) throws Exception  {
 		return coMenuService.queryCoMenuByKey(coMenu);
 	}
-	
 }

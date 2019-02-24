@@ -9,6 +9,7 @@ import com.gcb.demo.dao.CoUserMapper;
 import com.gcb.demo.po.AvailableResult;
 import com.gcb.demo.po.CoUser;
 import com.gcb.demo.service.CoUserService;
+import com.gcb.demo.utils.DateUtil;
 import com.gcb.demo.utils.StringUtil;
 
 @Service
@@ -31,6 +32,7 @@ public class CoUserServiceImpl implements CoUserService{
 			if (StringUtil.nullAndEmpty(coUser.getUserName())) {
 				return AvailableResult.errorMsg("请求参数的姓名为空");
 			}
+			coUser.setUpdateTime(DateUtil.getCurrentTime());
 			coUserMapper.insert(coUser);
 			return AvailableResult.ok();
 		} catch (Exception e) {
