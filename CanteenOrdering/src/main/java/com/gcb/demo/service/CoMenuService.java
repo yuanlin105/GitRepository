@@ -1,11 +1,15 @@
 package com.gcb.demo.service;
 
-import java.util.List;
-
+import com.gcb.demo.po.AvailableResult;
 import com.gcb.demo.po.CoMenu;
+import com.gcb.demo.vo.CoMenuReqEx;
 
 public interface CoMenuService {
 
-	public List<CoMenu> queryCoMenuList();
+	public AvailableResult queryCoMenuList();
+
+	public AvailableResult saveCoMenu(CoMenuReqEx coMenuReqEx);
+
+	public AvailableResult queryCoMenuByKey(CoMenu coMenu);
 
 }

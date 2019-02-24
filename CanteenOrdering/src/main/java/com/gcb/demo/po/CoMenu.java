@@ -1,10 +1,15 @@
 package com.gcb.demo.po;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Table(name = "co_menu")
-public class CoMenu {
-    /**
+public class CoMenu implements Serializable{
+
+	private static final long serialVersionUID = 7478020758969043949L;
+
+	/**
      * 星期几（周一到周日）
      */
     @Id

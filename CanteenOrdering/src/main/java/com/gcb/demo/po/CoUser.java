@@ -1,10 +1,15 @@
 package com.gcb.demo.po;
 
+import java.io.Serializable;
+
 import javax.persistence.*;
 
 @Table(name = "co_user")
-public class CoUser {
-    /**
+public class CoUser implements Serializable{
+
+	private static final long serialVersionUID = 4525257514598323245L;
+
+	/**
      * 用户id
      */
     @Id
