@@ -199,4 +199,11 @@ public class CoUserMenu implements Serializable{
     public void setExt3(String ext3) {
         this.ext3 = ext3;
     }
+
+	@Override
+	public String toString() {
+		return "CoUserMenu [userId=" + userId + ", menuWeek=" + menuWeek + ", menuMorningNoon=" + menuMorningNoon
+				+ ", status=" + status + ", updateTime=" + updateTime + ", ext1=" + ext1 + ", ext2=" + ext2 + ", ext3="
+				+ ext3 + "]";
+	}
 }

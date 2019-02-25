@@ -63,6 +63,7 @@ public class CoMenuItemServiceImpl implements CoMenuItemService {
 				
 				// 文件保存路径
 				String filePath = request.getSession().getServletContext().getRealPath("/") + newName;
+				logger.info(">>>>>>>>>>文件保存路径=" + filePath);
 				
 				// 转存文件
 				multipartFile.transferTo(new File(filePath));
@@ -76,6 +77,7 @@ public class CoMenuItemServiceImpl implements CoMenuItemService {
 				sftp.upload(UPLOAD_DIRECTORY, newName, is);
 				sftp.logout();
 				String url = URL_PREFIX + newName;
+				logger.info(">>>>>>>>>>访问图片的url=" + url);
 				logger.info(">>>>>>>>>>结束上传图片>>>>>>>>>>");
 				return AvailableResult.ok(url);
 			} catch (Exception e) {
@@ -120,6 +122,8 @@ public class CoMenuItemServiceImpl implements CoMenuItemService {
 	@Override
 	public AvailableResult saveCoMenuItem(CoMenuItem coMenuItem) {
 		try {
+			logger.info(">>>>>>>>>>开始保存菜单单品信息>>>>>>>>>>");
+			request.setCharacterEncoding("UTF-8");
 			// 参数检查
 			if (StringUtil.nullAndEmpty(coMenuItem.getItemName())) {
 				return AvailableResult.errorMsg("菜单单品名称为空");
@@ -127,6 +131,7 @@ public class CoMenuItemServiceImpl implements CoMenuItemService {
 			if (StringUtil.nullAndEmpty(coMenuItem.getItemUrl())) {
 				return AvailableResult.errorMsg("菜单单品的图片url为空");
 			}
+			logger.info(">>>>>>>>>>请求参数-菜单单品名称=" + coMenuItem.getItemName() + ",菜单单品的图片url=" + coMenuItem.getItemUrl());
 			CoMenuItem temp = new CoMenuItem();
 			temp.setItemName(coMenuItem.getItemName());
 			List<CoMenuItem> list = coMenuItemMapper.select(temp);
@@ -140,10 +145,11 @@ public class CoMenuItemServiceImpl implements CoMenuItemService {
 				cItem.setUpdateTime(DateUtil.getCurrentTime());
 				coMenuItemMapper.updateByPrimaryKeySelective(cItem);
 			}
+			logger.info(">>>>>>>>>>结束保存菜单单品信息>>>>>>>>>>");
 			return AvailableResult.ok();
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error(e.getMessage());
+			logger.error(">>>>>>>>>>保存菜单单品信息出现异常，原因为：" + e.getMessage());
 			return AvailableResult.errorException(e.getMessage());
 		}
 	}

@@ -198,4 +198,11 @@ public class CoMenuItem implements Serializable{
     public void setExt3(String ext3) {
         this.ext3 = ext3;
     }
+
+	@Override
+	public String toString() {
+		return "CoMenuItem [itemId=" + itemId + ", itemName=" + itemName + ", itemUrl=" + itemUrl + ", createTime="
+				+ createTime + ", updateTime=" + updateTime + ", ext1=" + ext1 + ", ext2=" + ext2 + ", ext3=" + ext3
+				+ "]";
+	}
 }

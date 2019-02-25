@@ -23,6 +23,7 @@ public class CoUserServiceImpl implements CoUserService{
 	@Override
 	public AvailableResult saveCoUser(CoUser coUser) {
 		try {
+			logger.info(">>>>>>>>>>开始保存用户信息>>>>>>>>>>");
 			if (coUser == null) {
 				return AvailableResult.errorMsg("请求参数为空");
 			}
@@ -34,10 +35,11 @@ public class CoUserServiceImpl implements CoUserService{
 			}
 			coUser.setUpdateTime(DateUtil.getCurrentTime());
 			coUserMapper.insert(coUser);
+			logger.info(">>>>>>>>>>结束保存用户信息>>>>>>>>>>");
 			return AvailableResult.ok();
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error(e.getMessage());
+			logger.error(">>>>>>>>>>保存用户信息出现异常，原因为：" + e.getMessage());
 			return AvailableResult.errorException(e.getMessage());
 		}
 	}

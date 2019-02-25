@@ -40,16 +40,18 @@ public class CoMenuServiceImpl implements CoMenuService {
 	@Transactional(propagation = Propagation.REQUIRED)
 	public AvailableResult saveCoMenu(CoMenuReqEx coMenuReqEx) {
 		try {
+			logger.info(">>>>>>>>>>开始保存菜单>>>>>>>>>>");
 			if (coMenuReqEx == null || coMenuReqEx.getList() == null) {
 				return AvailableResult.errorMsg(">>>>>>>>>>请求参数为空>>>>>>>>>>");
 			}
-			logger.info(coMenuReqEx.toString());
 			List<CoMenu> list = new ArrayList<CoMenu>();
 			List<CoMenuReqVo> coMenuReqVos = coMenuReqEx.getList(); // 获取一天的数据
 			for (CoMenuReqVo coMenuReqVo : coMenuReqVos) {
 				List<CoMenuVo> coMenuVos = coMenuReqVo.getCoMenuVos(); // 获取一餐的数据
 				if (!coMenuVos.isEmpty()) {
 					for (CoMenuVo coMenuVo : coMenuVos) {
+						logger.info(">>>>>>>>>>请求参数-menuWeek=" + coMenuReqVo.getMenuWeek() + ",am/pm="
+								+ coMenuVo.getMenuMorningNoon() + ",menuContent=" + coMenuVo.getMenuContent());
 						CoMenu coMenu = new CoMenu();
 						coMenu.setMenuWeek(coMenuReqVo.getMenuWeek());
 						coMenu.setMenuMorningNoon(coMenuVo.getMenuMorningNoon());
@@ -76,6 +78,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 					}
 				}
 			}
+			logger.info(">>>>>>>>>>结束保存菜单>>>>>>>>>>");
 			return AvailableResult.ok();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -91,6 +94,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 	@Transactional(propagation = Propagation.SUPPORTS)
 	public AvailableResult queryCoMenuList() {
 		try {
+			logger.info(">>>>>>>>>>开始查询所有菜单>>>>>>>>>>");
 			List<CoMenu> list = coMenuMapper.selectAll();
 			if (!list.isEmpty()) {
 				List<CoMenu> mondayCoMenus = new ArrayList<CoMenu>();
@@ -124,10 +128,10 @@ public class CoMenuServiceImpl implements CoMenuService {
 					}
 				}
 				List<CoMenuReqVo> coMenuReqVos = new ArrayList<CoMenuReqVo>();
-				
+
 				CoMenuReqVo coMenuReqVo = new CoMenuReqVo();
 				List<CoMenuVo> coMenuVos = new ArrayList<CoMenuVo>();
-				
+
 				// 星期一
 				for (CoMenu coMenu : mondayCoMenus) {
 					CoMenuVo coMenuVo = new CoMenuVo();
@@ -142,7 +146,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 				coMenuReqVo.setMenuWeek("monday");
 				coMenuReqVo.setCoMenuVos(coMenuVos);
 				coMenuReqVos.add(coMenuReqVo);
-				
+
 				// 星期二
 				coMenuReqVo = new CoMenuReqVo();
 				coMenuVos = new ArrayList<CoMenuVo>();
@@ -159,7 +163,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 				coMenuReqVo.setMenuWeek("tuesday");
 				coMenuReqVo.setCoMenuVos(coMenuVos);
 				coMenuReqVos.add(coMenuReqVo);
-				
+
 				// 星期三
 				coMenuReqVo = new CoMenuReqVo();
 				coMenuVos = new ArrayList<CoMenuVo>();
@@ -176,7 +180,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 				coMenuReqVo.setMenuWeek("wednesday");
 				coMenuReqVo.setCoMenuVos(coMenuVos);
 				coMenuReqVos.add(coMenuReqVo);
-				
+
 				// 星期四
 				coMenuReqVo = new CoMenuReqVo();
 				coMenuVos = new ArrayList<CoMenuVo>();
@@ -193,7 +197,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 				coMenuReqVo.setMenuWeek("thursday");
 				coMenuReqVo.setCoMenuVos(coMenuVos);
 				coMenuReqVos.add(coMenuReqVo);
-				
+
 				// 星期五
 				coMenuReqVo = new CoMenuReqVo();
 				coMenuVos = new ArrayList<CoMenuVo>();
@@ -210,7 +214,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 				coMenuReqVo.setMenuWeek("friday");
 				coMenuReqVo.setCoMenuVos(coMenuVos);
 				coMenuReqVos.add(coMenuReqVo);
-				
+
 				// 星期六
 				coMenuReqVo = new CoMenuReqVo();
 				coMenuVos = new ArrayList<CoMenuVo>();
@@ -227,7 +231,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 				coMenuReqVo.setMenuWeek("saturday");
 				coMenuReqVo.setCoMenuVos(coMenuVos);
 				coMenuReqVos.add(coMenuReqVo);
-				
+
 				// 星期日
 				coMenuReqVo = new CoMenuReqVo();
 				coMenuVos = new ArrayList<CoMenuVo>();
@@ -244,6 +248,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 				coMenuReqVo.setMenuWeek("sunday");
 				coMenuReqVo.setCoMenuVos(coMenuVos);
 				coMenuReqVos.add(coMenuReqVo);
+				logger.info(">>>>>>>>>>结束查询所有菜单>>>>>>>>>>");
 				return AvailableResult.ok(coMenuReqVos);
 			} else {
 				return AvailableResult.ok("当前系统还未录入任何菜单，请现在开始录入吧！");
@@ -257,6 +262,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 
 	/**
 	 * 通过菜单名称获取菜单图片url
+	 * 
 	 * @param menuContent
 	 * @return
 	 */
@@ -288,6 +294,7 @@ public class CoMenuServiceImpl implements CoMenuService {
 	@Override
 	public AvailableResult queryCoMenuByKey(CoMenu coMenu) {
 		try {
+			logger.info(">>>>>>>>>>开始查询某一餐的菜单>>>>>>>>>>");
 			if (coMenu == null) {
 				return AvailableResult.errorMsg("请求参数为空");
 			}
@@ -306,11 +313,14 @@ public class CoMenuServiceImpl implements CoMenuService {
 			if (!"am".equals(coMenu.getMenuMorningNoon()) && !"pm".equals(coMenu.getMenuMorningNoon())) {
 				return AvailableResult.errorMsg("参数“时间段”的值不符合规范，请检查");
 			}
+			logger.info(">>>>>>>>>>请求参数为：星期=" + coMenu.getMenuWeek() + ",时间段=" + coMenu.getMenuMorningNoon());
 			List<CoMenu> list = coMenuMapper.select(coMenu);
 			if (!list.isEmpty()) {
 				CoMenu temp = list.get(0);
 				String itemUrls = getItmeUrlsByItemName(temp.getMenuContent());
 				temp.setExt1(itemUrls); // 此时ext1临时保存所有图片的url
+				logger.info(">>>>>>>>>>返回结果为=" + temp.toString());
+				logger.info(">>>>>>>>>>结束查询某一餐的菜单>>>>>>>>>>");
 				return AvailableResult.ok(temp);
 			} else {
 				return AvailableResult.ok("该时间段还未录入任何菜单内容，请现在录入吧！");

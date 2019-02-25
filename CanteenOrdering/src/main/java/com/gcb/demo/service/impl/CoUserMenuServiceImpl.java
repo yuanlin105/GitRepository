@@ -25,6 +25,7 @@ public class CoUserMenuServiceImpl implements CoUserMenuService{
 	@Override
 	public AvailableResult saveCoUserMenuRelation(CoUserMenu coUserMenu) {
 		try {
+			logger.info(">>>>>>>>>>开始保存用户和菜单的关系>>>>>>>>>>");
 			if (coUserMenu == null) {
 				return AvailableResult.errorMsg("请求参数为空");
 			}
@@ -53,6 +54,8 @@ public class CoUserMenuServiceImpl implements CoUserMenuService{
 				return AvailableResult.errorMsg("参数“时间段”的值不符合规范，请检查");
 			}
 			
+			logger.info(">>>>>>>>>>请求参数=" + coUserMenu.toString());
+			
 			coUserMenu.setUpdateTime(DateUtil.getCurrentTime());
 			
 			CoUserMenu cMenu = new CoUserMenu();
@@ -65,10 +68,11 @@ public class CoUserMenuServiceImpl implements CoUserMenuService{
 			} else {
 				coUserMenuMapper.updateByPrimaryKeySelective(coUserMenu);
 			}
+			logger.info(">>>>>>>>>>结束保存用户和菜单的关系>>>>>>>>>>");
 			return AvailableResult.ok();
 		} catch (Exception e) {
+			logger.error(">>>>>>>>>>保存用户和菜单的关系出现异常，原因为：" + e.getMessage());
 			e.printStackTrace();
-			logger.error(e.getMessage());
 			return AvailableResult.errorException(e.getMessage());
 		}
 	}
@@ -76,6 +80,7 @@ public class CoUserMenuServiceImpl implements CoUserMenuService{
 	@Override
 	public AvailableResult findCoUserMenuRelation(CoUserMenu coUserMenu) {
 		try {
+			logger.info(">>>>>>>>>>开始查询用户和菜单的关系>>>>>>>>>>");
 			if (coUserMenu == null) {
 				return AvailableResult.errorMsg("请求参数为空");
 			}
@@ -97,11 +102,13 @@ public class CoUserMenuServiceImpl implements CoUserMenuService{
 			if (!"am".equals(coUserMenu.getMenuMorningNoon()) && !"pm".equals(coUserMenu.getMenuMorningNoon())) {
 				return AvailableResult.errorMsg("参数“时间段”的值不符合规范，请检查");
 			}
+			logger.info(">>>>>>>>>>请求参数=" + coUserMenu.toString());
 			coUserMenu = coUserMenuMapper.selectOne(coUserMenu);
+			logger.info(">>>>>>>>>>开始查询用户和菜单的关系>>>>>>>>>>");
 			return AvailableResult.ok(coUserMenu);
 		} catch (Exception e) {
+			logger.error(">>>>>>>>>>查询用户和菜单的关系出现异常，原因为：" + e.getMessage());
 			e.printStackTrace();
-			logger.error(e.getMessage());
 			return AvailableResult.errorException(e.getMessage());
 		}
 	}
