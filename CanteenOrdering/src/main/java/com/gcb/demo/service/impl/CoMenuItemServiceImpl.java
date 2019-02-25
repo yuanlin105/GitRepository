@@ -123,7 +123,6 @@ public class CoMenuItemServiceImpl implements CoMenuItemService {
 	public AvailableResult saveCoMenuItem(CoMenuItem coMenuItem) {
 		try {
 			logger.info(">>>>>>>>>>开始保存菜单单品信息>>>>>>>>>>");
-			request.setCharacterEncoding("UTF-8");
 			// 参数检查
 			if (StringUtil.nullAndEmpty(coMenuItem.getItemName())) {
 				return AvailableResult.errorMsg("菜单单品名称为空");
