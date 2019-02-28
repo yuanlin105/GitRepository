@@ -22,7 +22,7 @@ import org.apache.http.util.EntityUtils;
 public class HttpClientUtil {  
 	
 	public static void main(String[] args) {
-		String url="http://127.0.0.1:8124/bus/refresh"; 
+		String url="http://127.0.0.1:8126/bus/refresh?destination=config-client:**"; 
 		String html = HttpClientUtil.doPostJson(url, "root");
 		System.out.println(html);
 	}

@@ -27,5 +27,6 @@
     <module>config-encrypt-security-product-core</module>
     <module>config-client-bus</module>
     <module>config-client-bus2</module>
+    <module>config-server-bus</module>
   </modules>
 </project>
