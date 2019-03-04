@@ -3,21 +3,19 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.twf.springcloud</groupId>
-    <artifactId>spring-cloud-in-action</artifactId>
+    <artifactId>e-book</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>e-book</artifactId>
+  <artifactId>stream</artifactId>
   <packaging>pom</packaging>
+  <dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+	</dependencies>
   <modules>
-  	<module>e-book-product</module>
-  	<module>e-book-consumer</module>
-  	<module>e-book-user</module>
-  	<module>e-book-order</module>
-  	<module>e-book-trader</module>
-    <module>e-book-consumer-order</module>
-    <module>zuul</module>
-    <module>config</module>
-    <module>commons</module>
-    <module>stream</module>
+    <module>stream-sender</module>
+    <module>stream-receiver</module>
   </modules>
 </project>
