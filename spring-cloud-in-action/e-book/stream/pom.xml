@@ -21,5 +21,8 @@
     <module>stream-group-receiver</module>
     <module>stream-group-sender</module>
     <module>stream-group-receiver2</module>
+    <module>stream-partition-sender</module>
+    <module>stream-partition-receiver</module>
+    <module>stream-partition-receiver2</module>
   </modules>
 </project>
