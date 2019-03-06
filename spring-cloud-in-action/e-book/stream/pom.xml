@@ -17,5 +17,9 @@
   <modules>
     <module>stream-sender</module>
     <module>stream-receiver</module>
+    <module>stream-receiver2</module>
+    <module>stream-group-receiver</module>
+    <module>stream-group-sender</module>
+    <module>stream-group-receiver2</module>
   </modules>
 </project>
