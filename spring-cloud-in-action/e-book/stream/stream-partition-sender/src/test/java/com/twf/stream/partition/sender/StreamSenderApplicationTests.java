@@ -1,4 +1,4 @@
-package com.twf.stream.partition.sender;
+package com.twf.stream.partition.sender; 
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
