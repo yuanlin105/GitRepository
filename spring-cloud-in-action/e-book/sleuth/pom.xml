@@ -13,5 +13,6 @@
   	<module>sleuth-consumer</module>
     <module>sleuth-elk-consumer</module>
     <module>sleuth-elk-product</module>
+    <module>sleuth-zipkin-server</module>
   </modules>
 </project>
