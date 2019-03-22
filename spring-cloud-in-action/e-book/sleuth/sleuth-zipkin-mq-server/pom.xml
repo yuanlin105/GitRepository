@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <modelVersion>4.0.0</modelVersion>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
     <groupId>com.twf.springboot</groupId>
-	<artifactId>sleuth-zipkin-server</artifactId>
+	<artifactId>sleuth-zipkin-mq-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>sleuth-zipkin-server</name>
+	<name>sleuth-zipkin-mq-server</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -34,18 +35,23 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>io.zipkin.java</groupId>
+			<artifactId>zipkin-autoconfigure-ui</artifactId>
+		</dependency>
 		
 		<dependency>
-	      <groupId>io.zipkin.java</groupId>
-	      <artifactId>zipkin-autoconfigure-ui</artifactId>
-	    </dependency>
-	    <dependency>
-	      <groupId>io.zipkin.java</groupId>
-	      <artifactId>zipkin-server</artifactId>
-	    </dependency>
-	    
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>
+		</dependency>
+
 	</dependencies>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -57,7 +63,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 
 	<build>
 		<plugins>
