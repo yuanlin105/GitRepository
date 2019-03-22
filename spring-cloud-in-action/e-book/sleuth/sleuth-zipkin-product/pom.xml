@@ -3,18 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.twf.springcloud</groupId>
-    <artifactId>e-book</artifactId>
+    <artifactId>sleuth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>sleuth</artifactId>
+  <artifactId>sleuth-zipkin-product</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>sleuth-product</module>
-  	<module>sleuth-consumer</module>
-    <module>sleuth-elk-consumer</module>
-    <module>sleuth-elk-product</module>
-    <module>sleuth-zipkin-server</module>
-    <module>sleuth-zipkin-consumer</module>
-    <module>sleuth-zipkin-product</module>
+    <module>sleuth-zipkin-product-api</module>
+    <module>sleuth-zipkin-product-core</module>
   </modules>
 </project>
