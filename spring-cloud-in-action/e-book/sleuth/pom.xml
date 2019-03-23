@@ -19,5 +19,6 @@
     <module>sleuth-zipkin-mq-consumer</module>
     <module>sleuth-zipkin-mq-server</module>
     <module>sleuth-zipkin-mq-product</module>
+    <module>sleuth-zipkin-mysql-server</module>
   </modules>
 </project>
