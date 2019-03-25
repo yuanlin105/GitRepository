@@ -11,4 +11,4 @@ public class ZipkinMysqlApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ZipkinMysqlApplication.class, args);
 	}
-}
+} 
