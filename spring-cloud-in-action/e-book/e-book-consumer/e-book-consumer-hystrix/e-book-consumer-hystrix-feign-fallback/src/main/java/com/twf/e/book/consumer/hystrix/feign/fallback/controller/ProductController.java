@@ -24,6 +24,11 @@ public class ProductController {
 		List<Product> list = productService.listProduct();
 		return list;
 	}
+	
+	/**
+	 * feign调用zuul
+	 * @return
+	 */
 	@RequestMapping(value="list2",method=RequestMethod.GET)
 	public List<Product> listProduct2() {
 		List<Product> list = productService2.listProduct();
