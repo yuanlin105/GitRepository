@@ -6,7 +6,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
-
+//https://blog.csdn.net/hry2015/article/details/78554846
 @EnableHystrixDashboard
 @EnableCircuitBreaker
 @EnableFeignClients
