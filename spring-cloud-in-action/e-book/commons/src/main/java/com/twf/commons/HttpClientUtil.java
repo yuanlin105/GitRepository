@@ -22,9 +22,22 @@ import org.apache.http.util.EntityUtils;
 public class HttpClientUtil {  
 	
 	public static void main(String[] args) {
-		String url="http://127.0.0.1:8126/bus/refresh?destination=config-client:**"; 
-		String html = HttpClientUtil.doPostJson(url, "root"); 
+		//String url="http://127.0.0.1:8126/bus/refresh?destination=config-client:**"; 
+		//String html = HttpClientUtil.doPostJson(url, "root"); 
+String url="http://127.0.0.1:8124/encrypt";   // 重点在这里
+		
+		String html=HttpClientUtil.doPostJson(url,"123456");
+		
 		System.out.println(html);
+		
+String deUrl="http://127.0.0.1:8124/decrypt";   // 重点在这里
+		
+		String deHtml=HttpClientUtil.doPostJson(deUrl,html);
+		
+		System.out.println(deHtml);
+		
+		
+		
 	}
 	
     public static String doGet(String url, Map<String, String> param) {  
